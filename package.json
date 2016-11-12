@@ -1,0 +1,81 @@
+{
+  "_args": [
+    [
+      "RNBaiduMap",
+      "/Users/dushaobin/test/didizx-android"
+    ]
+  ],
+  "_from": "baidumapkit@latest",
+  "_id": "baidumapkit@1.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/baidumapkit",
+  "_nodeVersion": "5.3.0",
+  "_npmUser": {
+    "email": "loveruby1988@qq.com",
+    "name": "hufeng"
+  },
+  "_npmVersion": "2.14.15",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "baidumapkit",
+    "raw": "baidumapkit",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/baidumapkit/-/baidumapkit-1.1.0.tgz",
+  "_shasum": "99baa96c5ee746daae25d86532e1a8204d408417",
+  "_shrinkwrap": null,
+  "_spec": "baidumapkit",
+  "_where": "/Users/dushaobin/test/didizx-android",
+  "author": {
+    "name": "hufeng"
+  },
+  "bugs": {
+    "url": "https://github.com/hufeng/BaiduMapKit/issues"
+  },
+  "dependencies": {},
+  "description": "react-native bridge baidu's map android sdk",
+  "devDependencies": {},
+  "directories": {
+    "example": "example"
+  },
+  "dist": {
+    "shasum": "99baa96c5ee746daae25d86532e1a8204d408417",
+    "tarball": "https://registry.npmjs.org/baidumapkit/-/baidumapkit-1.1.0.tgz"
+  },
+  "gitHead": "1dc086bbdd70d9fc7882972d48ae7d848c8917ba",
+  "homepage": "https://github.com/hufeng/BaiduMapKit#readme",
+  "keywords": [
+    "baidu",
+    "map",
+    "react-native"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "hufeng",
+      "email": "loveruby1988@qq.com"
+    }
+  ],
+  "name": "baidumapkit",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.14.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hufeng/BaiduMapKit.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.0"
+}
