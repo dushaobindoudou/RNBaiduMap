@@ -1,5 +1,5 @@
 # react-native-baidu-map
-百度地图的React-Native版本
+百度地图的React-Native版本,目前仅支持android系统
 
 ## example
 
@@ -11,12 +11,26 @@ import React, {
   StyleSheet,
   Text,
   View,
+  DeviceEventEmitter
 } from 'react-native';
 
-import BaiduMap from 'baidumapkit';
+import BaiduMap from 'RNBaiduMap';
 
+
+function markeredClick(e){
+    alert('当前点击的markerId：'+e.id);
+}
 
 class BaiduMapExample extends React.Component {
+    componentWillUnmount(){
+        this.listenrer.remove();
+    }
+
+    componentWillMount(){
+        this.listenrer = DeviceEventEmitter.addListener('markerClick',function(e:Event){
+            alert('当前点击的markerId：'+e.id);
+        });
+    }
   render() {
     return (
       <View style={styles.container}>
@@ -24,16 +38,19 @@ class BaiduMapExample extends React.Component {
           React Native Baidu MapView!
         </Text>
         <BaiduMap
-          style={{flex:1}}
-          marker={[
-            [39.963175, 116.440244],
-            [39.903175, 116.490244],
-            [39.923175, 116.490244],
-            [39.953175, 116.490244]]}
-          mode={2} //1. 普通 2.卫星
-          trafficEnabled={true} //城市实时交通图
-          heatMapEnabled={true} //城市实时交通热力图
-        />
+            center={[40.0162110000,116.3990360000]}
+            marker={[
+                [40.0162110000,116.3990360000,1],
+                [40.0172110000,116.3990360000,2],
+                [40.0182110000,116.3990360000,3],
+                [40.0152110000,116.3990360000,4]
+              ]}
+            level={15}
+            zoomBtnVisibility={false}
+            style={{flex:1}}
+            mode={1}
+            markerClickEnabled={true}>
+        </BaiduMap>
       </View>
     );
   }
@@ -57,16 +74,15 @@ var styles = StyleSheet.create({
 AppRegistry.registerComponent('BaiduMapExample', () => BaiduMapExample);
 
 ```
-## 效果图
+## 有问题请联系我吧
+[RNBaiduMap github](https://github.com/dushaobindoudou/RNBaiduMap)
 
-![react-native-baidu-map](https://github.com/hufeng/react-native-baidu-map/blob/master/react-native-baidu-map.png
-)
 
 
 
 ## step 1 install
 ```sh
-$ npm install baidumapkit --save
+$ npm install RNBaiduMap --save
 ```
 
 ## Step 2 - Update Gradle Settings
@@ -74,8 +90,8 @@ $ npm install baidumapkit --save
 // file: android/settings.gradle
 ...
 
-include ':baidumapkit',  ':app'
-project(':baidumapkit').projectDir = new File(rootProject.projectDir, '../node_modules/baidumapkit')
+include ':RNBaiduMap',  ':app'
+project(':RNBaiduMap').projectDir = new File(rootProject.projectDir, '../node_modules/RNBaiduMap')
 ```
 
 ## Step 3 - Update app Gradle Build
@@ -86,7 +102,7 @@ project(':baidumapkit').projectDir = new File(rootProject.projectDir, '../node_m
 
 dependencies {
     ...
-    compile project(':baidumapkit')
+    compile project(':RNBaiduMap')
 }
 ```
 
@@ -146,10 +162,12 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         <meta-data
           android:name="com.baidu.lbsapi.API_KEY"
           android:value="App的key" />
+
     </application>
 
 </manifest>
 ```
 
 
-## At last, 祝玩得愉快。我会继续完善功能。
+## 好吧
+改版本是基于 baidumapkit 修改的，感谢
